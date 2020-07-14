@@ -178,6 +178,6 @@ int main(int argc, char ** argv) {
 }
 
 void yyerror(const char *m) {
-  printf("** --- Line %d, position %d: %s \n", currentLine, position, m);
+  printf("Error at line %d, position %d: %s \n", currentLine, position, m);
 
 }
