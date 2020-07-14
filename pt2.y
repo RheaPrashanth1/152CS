@@ -133,6 +133,24 @@ RelAndExp:      RelExp
                 | RelAndExp AND RelExp
                 {printf("RelAndExp -> RelAndExp AND RelExp\n");}
                 ;
+                
+RelExp:         Expression Comp Expression
+                {printf("RelExp -> Expression Comp Expression\n");}
+                | NOT Expression Comp Expression
+                {printf("RelExp -> NOT Expression Comp Expression\n");}
+                | TRUE
+                {printf("RelExp -> TRUE\n");}
+                | NOT TRUE
+                {printf("RelExp -> NOT TRUE\n");}
+                | FALSE
+                {printf("RelExp -> FALSE\n");}
+                | NOT FALSE
+                {printf("RelExp -> NOT FALSE\n");}
+                | LPAREN BoolExp RPAREN
+                {printf("RelExp -> LPAREN BoolExp RPAREN\n");}
+                | NOT LPAREN BoolExp RPAREN
+                {printf("RelExp -> NOT LPAREN BoolExp RPAREN\n");}
+                ;
 
 Comp:            EQ
                  {printf("Comp -> EQ\n");}
