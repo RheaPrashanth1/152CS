@@ -41,11 +41,11 @@ Program:         %empty
                  ;
 
 Function:       FUNCTION IDENTIFIERS SEMICOLON BEGINPARAMS DeclarationL ENDPARAMS BEGINLOCALS DeclarationL ENDLOCALS BEGINBODY StatementL ENDBODY
-                {printf("Function -> FUNCTION IDENTIFIERS %s SEMICOLON BEGINPARAMS DeclarationL ENDPARAMS BEGINLOCALS DeclarationL ENDLOCALS BEGINBODY StatementL ENDBODY\n", $1);}
+                {printf("Function -> FUNCTION IDENTIFIERS SEMICOLON BEGINPARAMS DeclarationL ENDPARAMS BEGINLOCALS DeclarationL ENDLOCALS BEGINBODY StatementL ENDBODY\n");}
                 ;
 
 Declaration:    Id COLON INTEGER 
-                {printf("Declaration -> IDENTIFIERS %s COLON INTEGER\n", $1);}
+                {printf("Declaration -> IDENTIFIERS COLON INTEGER\n");}
                 | Id COLON ARRAY LSQUARE NUMBER RSQUARE OF INTEGER
                 {printf("Declaration -> Id COLON ARRAY LSQUARE NUMBER RSQUARE OF INTEGER\n");}
                 ;
