@@ -41,19 +41,19 @@ Program:         %empty
                  ;
 
 Function:       FUNCTION IDENTIFIERS SEMICOLON BEGINPARAMS DeclarationL ENDPARAMS BEGINLOCALS DeclarationL ENDLOCALS BEGINBODY StatementL ENDBODY
-                {printf("Function -> FUNCTION IDENTIFIERS SEMICOLON BEGINPARAMS DeclarationL ENDPARAMS BEGINLOCALS DeclarationL ENDLOCALS BEGINBODY StatementL ENDBODY\n");}
+                {printf("Function -> FUNCTION IDENTIFIERS %s SEMICOLON BEGINPARAMS DeclarationL ENDPARAMS BEGINLOCALS DeclarationL ENDLOCALS BEGINBODY StatementL ENDBODY\n", $1);}
                 ;
 
 Declaration:    Id COLON INTEGER 
-                {printf("Declaration -> IDENTIFIERS COLON INTEGER\n");}
+                {printf("Declaration -> IDENTIFIERS %s COLON INTEGER\n", $1);}
                 | Id COLON ARRAY LSQUARE NUMBER RSQUARE OF INTEGER
                 {printf("Declaration -> Id COLON ARRAY LSQUARE NUMBER RSQUARE OF INTEGER\n");}
                 ;
 
 Id:             IDENTIFIERS
-                {printf("Id -> IDENTIFIERS\n");}
+                {printf("Id -> IDENTIFIERS %s\n", $1);}
                 | IDENTIFIERS COMMA Id
-                {printf("Id -> IDENTIFIERS COMMA Id\n");}
+                {printf("Id -> IDENTIFIERS %s COMMA Id\n", $1);}
                 ;
 
 DeclarationL:  %empty
@@ -95,9 +95,9 @@ Expression:     MultExp
                 ;
 
 Var:           IDENTIFIERS
-               {printf("Var -> INDENTIFIERS\n");}        
+               {printf("Var -> INDENTIFIERS %s\n", $1);}        
                | IDENTIFIERS LSQUARE Expression RSQUARE
-               {printf("Var -> IDENTIFIERS  LSQUARE Expression RSQUARE\n");}
+               {printf("Var -> IDENTIFIERS %s LSQUARE Expression RSQUARE\n", $1);}
                ;
 
 V:            Var
@@ -179,7 +179,7 @@ Term:            Var
                  | SUB LPAREN Expression RPAREN
                  {printf("Term -> SUB LPAREN Expression RPAREN\n");}
                  | IDENTIFIERS LPAREN ExpressionL RPAREN
-                 {printf("Term -> IDENTIFIERS LPAREN ExpressionL RPAREN\n");}
+                 {printf("Term -> IDENTIFIERS %s LPAREN ExpressionL RPAREN\n", $1);}
                  ;
 
 ExpressionL:    Expression
